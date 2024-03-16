@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MX PE IFTAR PARTY</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
+    }
+    video#background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1; /* Menempatkan video di belakang elemen lain */
+    }
+    #video-frame {
+        width: 640px; /* Lebar iframe */
+        height: 480px; /* Tinggi iframe */
+        border: none;
+        transform: scale(0.6); /* Mengubah skala iframe menjadi 70% */
+        border-radius: 10px; /* Rounded corner */
+        position: absolute; /* Menggunakan posisi absolute */
+        bottom: 20px; /* Jarak dari bawah */
+        left: 20px; /* Jarak dari kiri */
+		transform-origin: left bottom; /* Transform origin ke pojok kiri bawah */
+
+    }
+	#iframe {
+        width: 370px; /* Lebar iframe */	
+        border: none;
+        border-radius: 10px; /* Rounded corner */
+        position: absolute; /* Menggunakan posisi absolute */
+        bottom: 20px; /* Jarak dari bawah */
+        right: 20px; /* Jarak dari kiri */
+		transform-origin: right bottom; /* Transform origin ke pojok kiri bawah */
+
+    }
+	#Bekasi_z41c {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+
+}
+</style>
+</head>
+<body>
+<video id="background-video" autoplay loop muted>
+    <source src="X.mp4" type="video/mp4">
+    <!-- Sisipkan sumber video berikut jika browser tidak mendukung MP4 -->
+    <!-- <source src="video.webm" type="video/webm"> -->
+    Maaf, browser Anda tidak mendukung elemen video.
+</video>
+<span id="Bekasi_z41c"></span>
+<script src="//widget.time.is/t.js"></script>
+<script>
+time_is_widget.init({Bekasi_z41c:{time_format:"12hours:minutes:secondsAMPM"}});
+</script>
+<iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
+<iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
+</body>
+</html>
