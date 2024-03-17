@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MX PE IFTAR PARTY</title>
+<title>IFTAR PARTY MX PE</title>
 <style>
     body {
         margin: 0;
@@ -50,8 +50,27 @@
     font-size: 60px;
     color: white;
     font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
-
 }
+	#clock {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+    #link {
+        position: absolute;
+        top: 10px; /* Jarak dari atas */
+        right: 10px; /* Jarak dari kanan */
+        z-index: 1; /* Menempatkan link di atas elemen lain */
+        color: white; /* Warna teks */
+        text-decoration: none; /* Menghilangkan garis bawah */
+        padding: 10px 20px; /* Padding tombol */
+        background-color: #007bff; /* Warna latar belakang tombol */
+        border-radius: 5px; /* Rounded corner */
+    }
 </style>
 </head>
 <body>
@@ -61,12 +80,49 @@
     <!-- <source src="video.webm" type="video/webm"> -->
     Maaf, browser Anda tidak mendukung elemen video.
 </video>
-<span id="Bekasi_z41c"></span>
-<script src="//widget.time.is/t.js"></script>
+
+<!-- <span id="Bekasi_z41c"></span> -->
+<!-- <script src="//widget.time.is/t.js"></script> -->
+<!-- <script> -->
+<!-- time_is_widget.init({Bekasi_z41c:{time_format:"12hours:minutes:secondsAMPM"}}); -->
+<!-- </script> -->
+
+
+<div id="clock"></div>
 <script>
-time_is_widget.init({Bekasi_z41c:{time_format:"12hours:minutes:secondsAMPM"}});
+function displayTime() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var meridiem = "AM"; // Inisialisasi dengan AM
+  
+  // Konversi ke format 12 jam
+  if (hours >= 12) {
+    meridiem = "PM";
+  }
+  if (hours > 12) {
+    hours = hours - 12;
+  }
+  if (hours === 0) {
+    hours = 12;
+  }
+  
+  // Menambahkan angka 0 jika angka kurang dari 10
+  hours = (hours < 10 ? "0" : "") + hours;
+  minutes = (minutes < 10 ? "0" : "") + minutes;
+  seconds = (seconds < 10 ? "0" : "") + seconds;
+  
+  var timeString = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+  
+  document.getElementById("clock").innerHTML = timeString;
+}
+
+// Memanggil fungsi displayTime setiap detik
+setInterval(displayTime, 1000);
 </script>
 <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
 <iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
+<a href="videofull.html" id="link">SWITCH</a>
 </body>
 </html>
