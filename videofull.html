@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFTAR PARTY MX PE</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
+    }
+    video#background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1; /* Menempatkan video di belakang elemen lain */
+    }
+#video-frame {
+    width: 640px; /* Lebar iframe */
+    height: 480px; /* Tinggi iframe */
+    border: none;
+    border-radius: 10px; /* Rounded corner */
+    position: fixed; /* Menggunakan posisi fixed */
+    top: 45%; /* Menempatkan di tengah vertikal */
+    left: 40%; /* Menempatkan di tengah horizontal */
+    transform: translate(-50%, -50%) scale(1.3); /* Menggeser ke tengah dan skala 1.5 */
+    z-index: 1; /* Menempatkan di atas elemen lain */
+}
+
+	#iframe {
+        width: 385px; /* Lebar iframe */	
+        border: none;
+        border-radius: 10px; /* Rounded corner */
+        position: fixed; /* Menggunakan posisi absolute */
+        bottom: 20px; /* Jarak dari bawah */
+        right: 20px; /* Jarak dari kiri */
+		transform-origin: right bottom; /* Transform origin ke pojok kiri bawah */
+    top: 59%; /* Menempatkan di tengah vertikal */
+    left: 73%; /* Menempatkan di tengah horizontal */
+    transform: translate(-50%, -50%) scale(1); /* Menggeser ke tengah dan skala 1.5 */
+    z-index: 1; /* Menempatkan di atas elemen lain */
+    }
+	#Bekasi_z41c {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+	#clock {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+#link {
+        position: absolute;
+        top: 10px; /* Jarak dari atas */
+        right: 10px; /* Jarak dari kanan */
+        z-index: 1; /* Menempatkan link di atas elemen lain */
+        color: white; /* Warna teks */
+        text-decoration: none; /* Menghilangkan garis bawah */
+        padding: 10px 20px; /* Padding tombol */
+        background-color: #007bff; /* Warna latar belakang tombol */
+        border-radius: 5px; /* Rounded corner */
+    }
+	
+#poster {
+    width: 640px; /* Lebar iframe */
+    height: 480px; /* Tinggi iframe */
+    border: none;
+    border-radius: 10px; /* Rounded corner */
+    position: fixed; /* Menggunakan posisi fixed */
+    top: 24%; /* Menempatkan di tengah vertikal */
+    left: 73%; /* Menempatkan di tengah horizontal */
+    transform: translate(-50%, -50%) scale(0.6); /* Menggeser ke tengah dan skala 1.5 */
+    z-index: 1; /* Menempatkan di atas elemen lain */
+}
+    #quote {
+        font-size: 30px;
+        text-align: center;
+        color: white; /* Warna teks putih */
+        opacity: 1; /* Set opasitas awal menjadi 1 */
+        transition: opacity 0.5s ease-in-out; /* Tambahkan transisi untuk opasitas */
+        padding-top: 810px; /* Padding ke atas */		
+        padding-left: 310px; /* Padding ke atas */
+        padding-right: 310px; /* Padding ke atas */
+	}
+</style>
+</head>
+<body>
+<video id="background-video" autoplay loop muted>
+    <source src="X2.mp4" type="video/mp4">
+    <!-- Sisipkan sumber video berikut jika browser tidak mendukung MP4 -->
+    <!-- <source src="video.webm" type="video/webm"> -->
+    Maaf, browser Anda tidak mendukung elemen video.
+</video>
+
+<!-- <span id="Bekasi_z41c"></span> -->
+<!-- <script src="//widget.time.is/t.js"></script> -->
+<!-- <script> -->
+<!-- time_is_widget.init({Bekasi_z41c:{time_format:"12hours:minutes:secondsAMPM"}}); -->
+<!-- </script> -->
+
+
+<div id="clock"></div>
+<script>
+function displayTime() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var meridiem = "AM"; // Inisialisasi dengan AM
+  
+  // Konversi ke format 12 jam
+  if (hours >= 12) {
+    meridiem = "PM";
+  }
+  if (hours > 12) {
+    hours = hours - 12;
+  }
+  if (hours === 0) {
+    hours = 12;
+  }
+  
+  // Menambahkan angka 0 jika angka kurang dari 10
+  hours = (hours < 10 ? "0" : "") + hours;
+  minutes = (minutes < 10 ? "0" : "") + minutes;
+  seconds = (seconds < 10 ? "0" : "") + seconds;
+  
+  var timeString = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+  
+  document.getElementById("clock").innerHTML = timeString;
+}
+
+// Memanggil fungsi displayTime setiap detik
+setInterval(displayTime, 1000);
+</script>
+<video id="poster" autoplay loop muted>
+    <source src="X.mp4" type="video/mp4">
+    <!-- Sisipkan sumber video berikut jika browser tidak mendukung MP4 -->
+    <!-- <source src="video.webm" type="video/webm"> -->
+    Maaf, browser Anda tidak mendukung elemen video.
+</video>
+<iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 350px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
+<iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
+<br>
+<div id="quote"></div>
+<script>
+    const quotes = [
+        "Bulan Ramadhan, yang di dalamnya diturunkan Al-Qur'an sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk tersebut dan pembeda. Karena itu, barangsiapa di antara kamu hadir di bulan itu, maka hendaklah ia berpuasa. (Al-Baqarah: 185)",
+        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. (Al-Baqarah: 186)",
+        "Jika bulan Ramadhan telah datang, pintu-pintu syurga dibuka, pintu-pintu neraka ditutup, dan setan-setan dibelenggu. (Hadis riwayat Al-Bukhari dan Muslim)",
+        "Dan barangsiapa yang mengucapkan perkataan dusta tentang-Ku, maka hendaklah dia menyiapkan tempatnya di neraka. (Hadis riwayat Al-Bukhari dan Muslim)",
+        "Bacalah Al-Qur'an, karena ia akan menjadi syafa'at bagi pembacanya di hari kiamat. (Hadis riwayat Muslim)",
+        "Dan barangsiapa yang berpuasa di bulan Ramadhan dengan iman dan berharap akan pahala (dari Allah), maka dosa-dosanya yang telah lalu akan diampuni. (Hadis riwayat Al-Bukhari dan Muslim)",
+        "Sesungguhnya Kami menurunkannya (Al-Qur'an) pada malam kemuliaan. Dan tahukah kamu apakah malam kemuliaan itu? Malam kemuliaan itu lebih baik dari seribu bulan. (Al-Qadr: 1-3)",
+        "Mereka bertanya kepadamu tentang bulan Ramadhan, (katakanlah), 'Bulan Ramadhan itu ialah bulan di mana Al-Qur'an diturunkan; menjadi petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk itu dan pembeda antara yang hak dan yang bathil.' Maka barangsiapa di antara kamu hadir (di negeri tempat tinggalnya) di bulan itu, maka hendaklah ia berpuasa pada bulan itu. (Al-Baqarah: 185)",
+        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. (Al-Baqarah: 186)"
+    ];
+
+    const quoteElement = document.getElementById('quote');
+    let index = 0;
+
+    function displayQuote() {
+        // Set opacity ke 0 dan tunggu 0.5 detik sebelum mengubah teks dan opacity kembali ke 1
+        quoteElement.style.opacity = 0;
+        setTimeout(() => {
+            quoteElement.textContent = quotes[index];
+            index = (index + 1) % quotes.length;
+            quoteElement.style.opacity = 1;
+        }, 500);
+    }
+
+    displayQuote();
+    setInterval(displayQuote, 5000); // Ganti kutipan setiap 15 detik
+</script>
+<a href="index.html" id="link">SWITCH</a>
+</body>
+</html>
