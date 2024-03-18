@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Tambahkan link untuk ikon font-awesome -->
 <title>IFTAR PARTY MX PE</title>
 <style>
 body {
@@ -60,26 +61,72 @@ video#background-video {
 	color: white;
 	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
 }
-#link {
-	position: absolute;
-	top: 10px; /* Jarak dari atas */
-	right: 10px; /* Jarak dari kanan */
-	z-index: 1; /* Menempatkan link di atas elemen lain */
-	color: white; /* Warna teks */
-	text-decoration: none; /* Menghilangkan garis bawah */
-	padding: 10px 20px; /* Padding tombol */
-	background-color: #007bff; /* Warna latar belakang tombol */
-	border-radius: 5px; /* Rounded corner */
+/* Untuk memposisikan dropdown di pojok kanan atas */
+.dropdown {
+  position: absolute;
+  top: 7px;
+  right: 7px;
 }
-  /* Styling for positioning the form */
+
+/* Style tombol dropdown */
+.dropbtn {
+  background-color: #000; /* Warna latar hitam */
+  color: white; /* Warna teks putih */
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style konten dropdown (menu) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000; /* Warna latar hitam */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style link dalam dropdown */
+.dropdown-content a {
+  color: white; /* Warna teks putih */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style link dalam dropdown ketika dihover */
+.dropdown-content a:hover {
+  background-color: #333; /* Warna latar hitam gelap */
+}
+
+/* Menampilkan dropdown ketika tombol dropdown dihover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Styling for positioning the form */
 #video-form {
 	position: fixed;
-	top: 20px; /* Sesuaikan dengan jarak dari atas */
-	left: 20px; /* Sesuaikan dengan jarak dari kanan */
+	top: 7px; /* Sesuaikan dengan jarak dari atas */
+	left: 35px; /* Sesuaikan dengan jarak dari kanan */
 	z-index: 9999; /* Pastikan form berada di atas elemen lain */
 	text-align: center;
 	color: white; /* Warna teks putih */
 
+}
+#video-toggle {
+	position: fixed;
+	top: 2px;
+	left: 2px;
+	z-index: 9999;
+	background-color: transparent;
+	color: white;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
 }
 </style>
 </head>
@@ -132,22 +179,38 @@ function displayTime() {
 setInterval(displayTime, 1000);
 </script>
 <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
-<iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
-<form id="video-form">
+<iframe id="video-frame" src="http://192.168.2.186:5555/video" allowfullscreen></iframe>
+<button id="video-toggle"><i class="fa fa-camera"></i></button> <!-- Tombol untuk menampilkan/menyembunyikan formulir -->
+<form id="video-form" style="display: none;"> <!-- Formulir yang awalnya disembunyikan -->
   <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
   <input type="submit" value="Set Camera">
 </form>
 <script>
+const videoForm = document.getElementById("video-form");
+const videoToggle = document.getElementById("video-toggle");
+
+// Ketika tombol diklik, tampilkan/sembunyikan formulir
+videoToggle.addEventListener("click", function() {
+  if (videoForm.style.display === "none") {
+    videoForm.style.display = "block";
+  } else {
+    videoForm.style.display = "none";
+  }
+});
+
 document.getElementById("video-form").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent the default form submission
-  
-  // Get the value of the input field
   var videoUrl = document.getElementById("video-url").value;
-  
-  // Update the src attribute of the iframe with the new URL
   document.getElementById("video-frame").src = videoUrl;
 });
 </script>
-<a href="videofull.html" id="link">SWITCH</a>
+<div class="dropdown">
+  <button class="dropbtn">MX PE G</button>
+  <div class="dropdown-content">
+  <a href="index.html">HOME</a>
+  <a href="videofull.html">CAMERA</a>
+  <a href="form.html">JUARA</a>
+  </div>
+</div>
 </body>
 </html>
