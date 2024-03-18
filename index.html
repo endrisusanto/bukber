@@ -5,72 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IFTAR PARTY MX PE</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
-    }
-    video#background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1; /* Menempatkan video di belakang elemen lain */
-    }
-    #video-frame {
-        width: 640px; /* Lebar iframe */
-        height: 480px; /* Tinggi iframe */
-        border: none;
-        transform: scale(0.6); /* Mengubah skala iframe menjadi 70% */
-        border-radius: 10px; /* Rounded corner */
-        position: absolute; /* Menggunakan posisi absolute */
-        bottom: 20px; /* Jarak dari bawah */
-        left: 20px; /* Jarak dari kiri */
-		transform-origin: left bottom; /* Transform origin ke pojok kiri bawah */
-
-    }
-	#iframe {
-        width: 370px; /* Lebar iframe */	
-        border: none;
-        border-radius: 10px; /* Rounded corner */
-        position: absolute; /* Menggunakan posisi absolute */
-        bottom: 20px; /* Jarak dari bawah */
-        right: 20px; /* Jarak dari kiri */
-		transform-origin: right bottom; /* Transform origin ke pojok kiri bawah */
-
-    }
-	#Bekasi_z41c {
-    position: fixed;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: white;
-    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
 }
-	#clock {
-    position: fixed;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: white;
-    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+video#background-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1; /* Menempatkan video di belakang elemen lain */
 }
-    #link {
-        position: absolute;
-        top: 10px; /* Jarak dari atas */
-        right: 10px; /* Jarak dari kanan */
-        z-index: 1; /* Menempatkan link di atas elemen lain */
-        color: white; /* Warna teks */
-        text-decoration: none; /* Menghilangkan garis bawah */
-        padding: 10px 20px; /* Padding tombol */
-        background-color: #007bff; /* Warna latar belakang tombol */
-        border-radius: 5px; /* Rounded corner */
-    }
+#video-frame {
+	width: 640px; /* Lebar iframe */
+	height: 480px; /* Tinggi iframe */
+	border: none;
+	transform: scale(0.6); /* Mengubah skala iframe menjadi 70% */
+	border-radius: 10px; /* Rounded corner */
+	position: absolute; /* Menggunakan posisi absolute */
+	bottom: 20px; /* Jarak dari bawah */
+	left: 20px; /* Jarak dari kiri */
+	transform-origin: left bottom; /* Transform origin ke pojok kiri bawah */
+
+}
+#iframe {
+	width: 370px; /* Lebar iframe */	
+	border: none;
+	border-radius: 10px; /* Rounded corner */
+	position: absolute; /* Menggunakan posisi absolute */
+	bottom: 20px; /* Jarak dari bawah */
+	right: 20px; /* Jarak dari kiri */
+	transform-origin: right bottom; /* Transform origin ke pojok kiri bawah */
+
+}
+#Bekasi_z41c {
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
+	color: white;
+	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+#clock {
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
+	color: white;
+	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+#link {
+	position: absolute;
+	top: 10px; /* Jarak dari atas */
+	right: 10px; /* Jarak dari kanan */
+	z-index: 1; /* Menempatkan link di atas elemen lain */
+	color: white; /* Warna teks */
+	text-decoration: none; /* Menghilangkan garis bawah */
+	padding: 10px 20px; /* Padding tombol */
+	background-color: #007bff; /* Warna latar belakang tombol */
+	border-radius: 5px; /* Rounded corner */
+}
+  /* Styling for positioning the form */
+#video-form {
+	position: fixed;
+	top: 20px; /* Sesuaikan dengan jarak dari atas */
+	left: 20px; /* Sesuaikan dengan jarak dari kanan */
+	z-index: 9999; /* Pastikan form berada di atas elemen lain */
+	text-align: center;
+	color: white; /* Warna teks putih */
+
+}
 </style>
 </head>
 <body>
@@ -123,6 +133,21 @@ setInterval(displayTime, 1000);
 </script>
 <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
 <iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
+<form id="video-form">
+  <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
+  <input type="submit" value="Set Camera">
+</form>
+<script>
+document.getElementById("video-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  
+  // Get the value of the input field
+  var videoUrl = document.getElementById("video-url").value;
+  
+  // Update the src attribute of the iframe with the new URL
+  document.getElementById("video-frame").src = videoUrl;
+});
+</script>
 <a href="videofull.html" id="link">SWITCH</a>
 </body>
 </html>
