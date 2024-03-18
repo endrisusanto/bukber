@@ -96,6 +96,16 @@ video#background-video {
         padding-left: 310px; /* Padding ke atas */
         padding-right: 310px; /* Padding ke atas */
 }
+	  /* Styling for positioning the form */
+#video-form {
+	position: fixed;
+	top: 20px; /* Sesuaikan dengan jarak dari atas */
+	left: 20px; /* Sesuaikan dengan jarak dari kanan */
+	z-index: 9999; /* Pastikan form berada di atas elemen lain */
+	text-align: center;
+	color: white; /* Warna teks putih */
+
+}
 </style>
 </head>
 <body>
@@ -184,6 +194,21 @@ setInterval(displayTime, 1000);
 
     displayQuote();
     setInterval(displayQuote, 15000); // Ganti kutipan setiap 15 detik
+</script>
+<form id="video-form">
+  <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
+  <input type="submit" value="Set Camera">
+</form>
+<script>
+document.getElementById("video-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  
+  // Get the value of the input field
+  var videoUrl = document.getElementById("video-url").value;
+  
+  // Update the src attribute of the iframe with the new URL
+  document.getElementById("video-frame").src = videoUrl;
+});
 </script>
 <a href="index.html" id="link">SWITCH</a>
 </body>
