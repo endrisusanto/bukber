@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Tambahkan link untuk ikon font-awesome -->
+
 <title>IFTAR PARTY MX PE</title>
 <style>
 body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
 }
 video#background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1; /* Menempatkan video di belakang elemen lain */
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1; /* Menempatkan video di belakang elemen lain */
 }
 #video-frame {
 	width: 640px; /* Lebar iframe */
@@ -64,17 +66,17 @@ video#background-video {
 	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
 }
 #link {
-        position: absolute;
-        top: 10px; /* Jarak dari atas */
-        right: 10px; /* Jarak dari kanan */
-        z-index: 1; /* Menempatkan link di atas elemen lain */
-        color: white; /* Warna teks */
-        text-decoration: none; /* Menghilangkan garis bawah */
-        padding: 10px 20px; /* Padding tombol */
-        background-color: #007bff; /* Warna latar belakang tombol */
-        border-radius: 5px; /* Rounded corner */
+	position: absolute;
+	top: 7px; /* Jarak dari atas */
+	right: 7px; /* Jarak dari kanan */
+	z-index: 1; /* Menempatkan link di atas elemen lain */
+	color: white; /* Warna teks */
+	text-decoration: none; /* Menghilangkan garis bawah */
+	padding: 10px 20px; /* Padding tombol */
+	background-color: #000; /* Warna latar belakang tombol */
+	border-radius: 5px; /* Rounded corner */
 }
-	
+
 #poster {
 	width: 640px; /* Lebar iframe */
 	height: 480px; /* Tinggi iframe */
@@ -87,24 +89,81 @@ video#background-video {
 	z-index: 1; /* Menempatkan di atas elemen lain */
 }
 #quote {
-        font-size: 30px;
-        text-align: center;
-        color: white; /* Warna teks putih */
-        opacity: 1; /* Set opasitas awal menjadi 1 */
-        transition: opacity 0.5s ease-in-out; /* Tambahkan transisi untuk opasitas */
-        padding-top: 810px; /* Padding ke atas */		
-        padding-left: 310px; /* Padding ke atas */
-        padding-right: 310px; /* Padding ke atas */
+	font-size: 30px;
+	text-align: center;
+	color: white; /* Warna teks putih */
+	opacity: 1; /* Set opasitas awal menjadi 1 */
+	transition: opacity 0.5s ease-in-out; /* Tambahkan transisi untuk opasitas */
+	padding-top: 810px; /* Padding ke atas */		
+	padding-left: 310px; /* Padding ke atas */
+	padding-right: 310px; /* Padding ke atas */
 }
-	  /* Styling for positioning the form */
+/* Styling for positioning the form */
 #video-form {
 	position: fixed;
-	top: 20px; /* Sesuaikan dengan jarak dari atas */
-	left: 20px; /* Sesuaikan dengan jarak dari kanan */
+	top: 7px; /* Sesuaikan dengan jarak dari atas */
+	left: 35px; /* Sesuaikan dengan jarak dari kanan */
 	z-index: 9999; /* Pastikan form berada di atas elemen lain */
 	text-align: center;
 	color: white; /* Warna teks putih */
 
+}
+#video-toggle {
+	position: fixed;
+	top: 2px;
+	left: 2px;
+	z-index: 9999;
+	background-color: transparent;
+	color: white;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+/* Untuk memposisikan dropdown di pojok kanan atas */
+.dropdown {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+/* Style tombol dropdown */
+.dropbtn {
+  background-color: #000; /* Warna latar hitam */
+  color: white; /* Warna teks putih */
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style konten dropdown (menu) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000; /* Warna latar hitam */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style link dalam dropdown */
+.dropdown-content a {
+  color: white; /* Warna teks putih */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style link dalam dropdown ketika dihover */
+.dropdown-content a:hover {
+  background-color: #333; /* Warna latar hitam gelap */
+}
+
+/* Menampilkan dropdown ketika tombol dropdown dihover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>
 </head>
@@ -163,20 +222,19 @@ setInterval(displayTime, 1000);
     Maaf, browser Anda tidak mendukung elemen video.
 </video>
 <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 350px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
-<iframe id="video-frame" src="http://192.168.0.105:5555/video" allowfullscreen></iframe>
+<iframe id="video-frame" src="http://192.168.2.186:5555/video" allowfullscreen></iframe>
 <br>
 <div id="quote"></div>
 <script>
     const quotes = [
-        "Bulan Ramadhan, yang di dalamnya diturunkan Al-Qur'an sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk tersebut dan pembeda. Karena itu, barangsiapa di antara kamu hadir di bulan itu, maka hendaklah ia berpuasa. (Al-Baqarah: 185)",
-        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. (Al-Baqarah: 186)",
-        "Jika bulan Ramadhan telah datang, pintu-pintu syurga dibuka, pintu-pintu neraka ditutup, dan setan-setan dibelenggu. (Hadis riwayat Al-Bukhari dan Muslim)",
-        "Dan barangsiapa yang mengucapkan perkataan dusta tentang-Ku, maka hendaklah dia menyiapkan tempatnya di neraka. (Hadis riwayat Al-Bukhari dan Muslim)",
-        "Bacalah Al-Qur'an, karena ia akan menjadi syafa'at bagi pembacanya di hari kiamat. (Hadis riwayat Muslim)",
-        "Dan barangsiapa yang berpuasa di bulan Ramadhan dengan iman dan berharap akan pahala (dari Allah), maka dosa-dosanya yang telah lalu akan diampuni. (Hadis riwayat Al-Bukhari dan Muslim)",
-        "Sesungguhnya Kami menurunkannya (Al-Qur'an) pada malam kemuliaan. Dan tahukah kamu apakah malam kemuliaan itu? Malam kemuliaan itu lebih baik dari seribu bulan. (Al-Qadr: 1-3)",
-        "Mereka bertanya kepadamu tentang bulan Ramadhan, (katakanlah), 'Bulan Ramadhan itu ialah bulan di mana Al-Qur'an diturunkan; menjadi petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk itu dan pembeda antara yang hak dan yang bathil.' Maka barangsiapa di antara kamu hadir (di negeri tempat tinggalnya) di bulan itu, maka hendaklah ia berpuasa pada bulan itu. (Al-Baqarah: 185)",
-        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. (Al-Baqarah: 186)"
+        "Bulan Ramadhan, yang di dalamnya diturunkan Al-Qur'an sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk tersebut dan pembeda. Karena itu, barangsiapa di antara kamu hadir di bulan itu, maka hendaklah ia berpuasa. <br>(Al-Baqarah: 185)",
+        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. <br>(Al-Baqarah: 186)",
+        "Jika bulan Ramadhan telah datang, pintu-pintu syurga dibuka, pintu-pintu neraka ditutup, dan setan-setan dibelenggu. <br>(Hadis riwayat Al-Bukhari dan Muslim)",
+        "Dan barangsiapa yang mengucapkan perkataan dusta tentang-Ku, maka hendaklah dia menyiapkan tempatnya di neraka. <br>(Hadis riwayat Al-Bukhari dan Muslim)",
+        "Bacalah Al-Qur'an, karena ia akan menjadi syafa'at bagi pembacanya di hari kiamat. <br>(Hadis riwayat Muslim)",
+        "Dan barangsiapa yang berpuasa di bulan Ramadhan dengan iman dan berharap akan pahala (dari Allah), maka dosa-dosanya yang telah lalu akan diampuni. <br>(Hadis riwayat Al-Bukhari dan Muslim)",
+        "Sesungguhnya Kami menurunkannya (Al-Qur'an) pada malam kemuliaan. Dan tahukah kamu apakah malam kemuliaan itu? Malam kemuliaan itu lebih baik dari seribu bulan. <br>(Al-Qadr: 1-3)",
+        "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka sesungguhnya Aku dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku. Maka hendaklah mereka itu memenuhi (segala perintah) Ku dan hendaklah mereka beriman kepada-Ku, agar mereka selalu berada dalam kebenaran. <br>(Al-Baqarah: 186)"
     ];
 
     const quoteElement = document.getElementById('quote');
@@ -186,30 +244,47 @@ setInterval(displayTime, 1000);
         // Set opacity ke 0 dan tunggu 0.5 detik sebelum mengubah teks dan opacity kembali ke 1
         quoteElement.style.opacity = 0;
         setTimeout(() => {
-            quoteElement.textContent = quotes[index];
+            quoteElement.innerHTML = quotes[index];
             index = (index + 1) % quotes.length;
             quoteElement.style.opacity = 1;
         }, 500);
     }
 
     displayQuote();
-    setInterval(displayQuote, 15000); // Ganti kutipan setiap 15 detik
+    setInterval(displayQuote, 10000); // Ganti kutipan setiap 10 detik
 </script>
-<form id="video-form">
+
+<button id="video-toggle"><i class="fa fa-camera"></i></button> <!-- Tombol untuk menampilkan/menyembunyikan formulir -->
+<form id="video-form" style="display: none;"> <!-- Formulir yang awalnya disembunyikan -->
   <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
   <input type="submit" value="Set Camera">
 </form>
 <script>
+const videoForm = document.getElementById("video-form");
+const videoToggle = document.getElementById("video-toggle");
+
+// Ketika tombol diklik, tampilkan/sembunyikan formulir
+videoToggle.addEventListener("click", function() {
+  if (videoForm.style.display === "none") {
+    videoForm.style.display = "block";
+  } else {
+    videoForm.style.display = "none";
+  }
+});
+
 document.getElementById("video-form").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent the default form submission
-  
-  // Get the value of the input field
   var videoUrl = document.getElementById("video-url").value;
-  
-  // Update the src attribute of the iframe with the new URL
   document.getElementById("video-frame").src = videoUrl;
 });
 </script>
-<a href="index.html" id="link">SWITCH</a>
+<div class="dropdown">
+  <button class="dropbtn">MX PE G</button>
+  <div class="dropdown-content">
+  <a href="index.html">HOME</a>
+  <a href="videofull.html">CAMERA</a>
+  <a href="form.html">JUARA</a>
+  </div>
+</div>
 </body>
 </html>
