@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webcam Stream</title>
+<style>
+    video {
+        width: 100%;
+        height: auto;
+    }
+	#link {
+	position: absolute;
+	top: 7px; /* Jarak dari atas */
+	left: 7px; /* Jarak dari kanan */
+	z-index: 1; /* Menempatkan link di atas elemen lain */
+	color: white; /* Warna teks */
+	text-decoration: none; /* Menghilangkan garis bawah */
+	padding: 10px 20px; /* Padding tombol */
+	background-color: #000; /* Warna latar belakang tombol */
+	border-radius: 5px; /* Rounded corner */
+}
+</style>
+</head>
+<body>
+    <h1>Webcam Stream</h1>
+    <video id="webcam" autoplay></video>
+
+    <script>
+        // Accessing webcam stream
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                var video = document.getElementById('webcam');
+                video.srcObject = stream;
+                video.onloadedmetadata = function(e) {
+                    video.play();
+                };
+            })
+            .catch(function(err) {
+                console.error('Error accessing webcam:', err);
+            });
+    </script>
+	<a href="index.html">HOME</a>
+</body>
+</html>
