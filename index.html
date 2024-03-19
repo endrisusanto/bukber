@@ -54,7 +54,7 @@ video#background-video {
 }
 #clock {
 	position: fixed;
-	top: 5%;
+	top: 3%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 60px;
@@ -132,7 +132,7 @@ video#background-video {
 </head>
 <body>
 <video id="background-video" autoplay loop muted>
-    <source src="X.mp4" type="video/mp4">
+    <source src="X3.mp4" type="video/mp4">
     <!-- Sisipkan sumber video berikut jika browser tidak mendukung MP4 -->
     <!-- <source src="video.webm" type="video/webm"> -->
     Maaf, browser Anda tidak mendukung elemen video.
@@ -178,8 +178,8 @@ function displayTime() {
 // Memanggil fungsi displayTime setiap detik
 setInterval(displayTime, 1000);
 </script>
-<iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
-<iframe id="video-frame" src="http://192.168.2.186:5555/video" allowfullscreen></iframe>
+<!-- <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 285px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1646678/shafi/11/0/20.0/18.0"> </iframe>
+<iframe id="video-frame" src="http://192.168.2.186:5555/video" allowfullscreen></iframe> -->
 <button id="video-toggle"><i class="fa fa-camera"></i></button> <!-- Tombol untuk menampilkan/menyembunyikan formulir -->
 <form id="video-form" style="display: none;"> <!-- Formulir yang awalnya disembunyikan -->
   <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
@@ -209,8 +209,10 @@ document.getElementById("video-form").addEventListener("submit", function(event)
   <div class="dropdown-content">
   <a href="index.html">HOME</a>
   <a href="videofull.html">CAMERA</a>
+  <a href="quiz.html">QUIZ</a>
   <a href="form.html">JUARA</a>
-  <a href="webcam.html">WEBCAM</a>
+  <a href="idle.html">IDLE</a>
+  <a href="webcam.html">FULLCAM</a>
   </div>
 </div>
 </body>
