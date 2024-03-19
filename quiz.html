@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Tambahkan link untuk ikon font-awesome -->
+
+<title>IFTAR PARTY MX PE</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Menyembunyikan overflow agar video tidak menampilkan scrollbars */
+}
+video#background-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+}
+#video-frame {
+	width: 60%; /* Lebar iframe */
+	height: 600px; /* Tinggi iframe */
+	border: none;
+	border-radius: 10px; /* Rounded corner */
+	position: fixed; /* Menggunakan posisi fixed */
+	top: 55%; /* Menempatkan di tengah vertikal */
+	left: 50%; /* Menempatkan di tengah horizontal */
+	transform: translate(-50%, -50%) scale(1.3); /* Menggeser ke tengah dan skala 1.5 */
+	z-index: 0; /* Menempatkan di atas elemen lain */
+}
+
+#iframe {
+	width: 385px; /* Lebar iframe */	
+	border: none;
+	border-radius: 10px; /* Rounded corner */
+	position: fixed; /* Menggunakan posisi absolute */
+	bottom: 20px; /* Jarak dari bawah */
+	right: 20px; /* Jarak dari kiri */
+	transform-origin: right bottom; /* Transform origin ke pojok kiri bawah */
+	top: 59%; /* Menempatkan di tengah vertikal */
+	left: 73%; /* Menempatkan di tengah horizontal */
+	transform: translate(-50%, -50%) scale(1); /* Menggeser ke tengah dan skala 1.5 */
+	z-index: 1; /* Menempatkan di atas elemen lain */
+}
+#Bekasi_z41c {
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
+	color: white;
+	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+#clock {
+	position: fixed;
+	top: 3%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
+	color: white;
+	font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+}
+#link {
+	position: absolute;
+	top: 7px; /* Jarak dari atas */
+	right: 7px; /* Jarak dari kanan */
+	z-index: 1; /* Menempatkan link di atas elemen lain */
+	color: white; /* Warna teks */
+	text-decoration: none; /* Menghilangkan garis bawah */
+	padding: 10px 20px; /* Padding tombol */
+	background-color: #000; /* Warna latar belakang tombol */
+	border-radius: 5px; /* Rounded corner */
+}
+#myImg {
+	width: 100px; /* Lebar iframe */
+	position: absolute;
+	bottom: 95px; /* Jarak dari atas */
+	right: 7px; /* Jarak dari kanan */
+	z-index: 1; /* Menempatkan link di atas elemen lain */
+	border-radius: 15px; /* Rounded corner */
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+#poster {
+	width: 640px; /* Lebar iframe */
+	height: 480px; /* Tinggi iframe */
+	border: none;
+	border-radius: 10px; /* Rounded corner */
+	position: fixed; /* Menggunakan posisi fixed */
+	top: 24%; /* Menempatkan di tengah vertikal */
+	left: 73%; /* Menempatkan di tengah horizontal */
+	transform: translate(-50%, -50%) scale(0.6); /* Menggeser ke tengah dan skala 1.5 */
+	z-index: 1; /* Menempatkan di atas elemen lain */
+}
+#quote {
+	font-size: 30px;
+	text-align: center;
+	color: white; /* Warna teks putih */
+	opacity: 1; /* Set opasitas awal menjadi 1 */
+	transition: opacity 0.5s ease-in-out; /* Tambahkan transisi untuk opasitas */
+	padding-top: 810px; /* Padding ke atas */		
+	padding-left: 310px; /* Padding ke atas */
+	padding-right: 310px; /* Padding ke atas */
+}
+/* Styling for positioning the form */
+#video-form {
+	position: fixed;
+	top: 7px; /* Sesuaikan dengan jarak dari atas */
+	left: 35px; /* Sesuaikan dengan jarak dari kanan */
+	z-index: 9999; /* Pastikan form berada di atas elemen lain */
+	text-align: center;
+	color: white; /* Warna teks putih */
+
+}
+#video-toggle {
+	position: fixed;
+	top: 2px;
+	left: 2px;
+	z-index: 9999;
+	background-color: transparent;
+	color: white;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+/* Untuk memposisikan dropdown di pojok kanan atas */
+.dropdown {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+/* Style tombol dropdown */
+.dropbtn {
+  background-color: #000; /* Warna latar hitam */
+  color: white; /* Warna teks putih */
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style konten dropdown (menu) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000; /* Warna latar hitam */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px; /* Border radius */
+}
+
+/* Style link dalam dropdown */
+.dropdown-content a {
+  color: white; /* Warna teks putih */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style link dalam dropdown ketika dihover */
+.dropdown-content a:hover {
+  background-color: #333; /* Warna latar hitam gelap */
+}
+
+/* Menampilkan dropdown ketika tombol dropdown dihover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<video id="background-video" autoplay loop muted>
+    <source src="X1.mp4" type="video/mp4">
+    <!-- Sisipkan sumber video berikut jika browser tidak mendukung MP4 -->
+    <!-- <source src="video.webm" type="video/webm"> -->
+    Maaf, browser Anda tidak mendukung elemen video.
+</video>
+
+<!-- <span id="Bekasi_z41c"></span> -->
+<!-- <script src="//widget.time.is/t.js"></script> -->
+<!-- <script> -->
+<!-- time_is_widget.init({Bekasi_z41c:{time_format:"12hours:minutes:secondsAMPM"}}); -->
+<!-- </script> -->
+
+
+<div id="clock"></div>
+<script>
+function displayTime() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var meridiem = "AM"; // Inisialisasi dengan AM
+  
+  // Konversi ke format 12 jam
+  if (hours >= 12) {
+    meridiem = "PM";
+  }
+  if (hours > 12) {
+    hours = hours - 12;
+  }
+  if (hours === 0) {
+    hours = 12;
+  }
+  
+  // Menambahkan angka 0 jika angka kurang dari 10
+  hours = (hours < 10 ? "0" : "") + hours;
+  minutes = (minutes < 10 ? "0" : "") + minutes;
+  seconds = (seconds < 10 ? "0" : "") + seconds;
+  
+  var timeString = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+  
+  document.getElementById("clock").innerHTML = timeString;
+}
+
+// Memanggil fungsi displayTime setiap detik
+setInterval(displayTime, 1000);
+</script>
+<img id="myImg" src="wifi.jpg" alt="WIFI HOTEL" style="width:100%;max-width:200px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+<iframe id="video-frame" src="http://192.168.2.186:5555/video" allowfullscreen></iframe>
+<br>
+
+
+<button id="video-toggle"><i class="fa fa-camera"></i></button> <!-- Tombol untuk menampilkan/menyembunyikan formulir -->
+<form id="video-form" style="display: none;"> <!-- Formulir yang awalnya disembunyikan -->
+  <input type="text" id="video-url" name="video-url" value="http://192.168.2.186:5555/video"><br>
+  <input type="submit" value="Set Camera">
+</form>
+<script>
+const videoForm = document.getElementById("video-form");
+const videoToggle = document.getElementById("video-toggle");
+
+// Ketika tombol diklik, tampilkan/sembunyikan formulir
+videoToggle.addEventListener("click", function() {
+  if (videoForm.style.display === "none") {
+    videoForm.style.display = "block";
+  } else {
+    videoForm.style.display = "none";
+  }
+});
+
+document.getElementById("video-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  var videoUrl = document.getElementById("video-url").value;
+  document.getElementById("video-frame").src = videoUrl;
+});
+</script>
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+	var img = document.getElementById("myImg");
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function(){
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	  captionText.innerHTML = this.alt;
+	}
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() { 
+	  modal.style.display = "none";
+	}
+	</script>
+<div class="dropdown">
+  <button class="dropbtn">MX PE G</button>
+  <div class="dropdown-content">
+  <a href="index.html">HOME</a>
+  <a href="videofull.html">CAMERA</a>
+  <a href="quiz.html">QUIZ</a>
+  <a href="form.html">JUARA</a>
+  <a href="idle.html">IDLE</a>
+  <a href="webcam.html">FULLCAM</a>
+  </div>
+</div>
+</body>
+</html>
