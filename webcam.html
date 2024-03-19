@@ -6,10 +6,10 @@
 <title>Webcam Stream</title>
 <style>
     video {
-        width: 100%;
+        width: 98%;
         height: auto;
     }
-	#link {
+    #link {
 	position: absolute;
 	top: 7px; /* Jarak dari atas */
 	left: 7px; /* Jarak dari kanan */
@@ -23,7 +23,6 @@
 </style>
 </head>
 <body>
-    <h1>Webcam Stream</h1>
     <video id="webcam" autoplay></video>
 
     <script>
@@ -40,6 +39,6 @@
                 console.error('Error accessing webcam:', err);
             });
     </script>
-	<a href="index.html">HOME</a>
+    <a href="index.html" id="link">HOME</a>
 </body>
 </html>
